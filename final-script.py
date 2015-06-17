@@ -1,5 +1,6 @@
 import sys
 import os
+import optparse
 from subprocess import call
 
 array = []
@@ -18,10 +19,21 @@ arr = array[update:len(array)+1]
 
 
 if(arr[1]=='c'):
-	exe=raw_input("Give the name of executable file: ")
-	call(["gcc" ,sys.argv[1], "-o",exe])
-	call(["./"+exe])
-	os.remove(exe)
+	parser = optparse.OptionParser()
+	parser.add_option('-n', '--executable', dest='file', help='file name')
+	(options, args) = parser.parse_args()
+
+	if options.file is None:
+		options.file=raw_input("Give the name of executable file: ")
+		call(["gcc" ,sys.argv[1], "-o",options.file])
+		call(["./"+options.file])
+		os.remove(options.file)
+
+	else:
+		call(["gcc" ,sys.argv[1], "-o",sys.argv[3]])
+		call(["./"+sys.argv[3]])
+		os.remove(sys.argv[3])
+
 
 elif(arr[1]=='p' and arr[2]=='y'):
 	call(["python",sys.argv[1]])
