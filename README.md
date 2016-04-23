@@ -1,4 +1,4 @@
-#runeve is a python script which runs various types of programs of different programming language using a single command.
+runeve is a python script which runs various types of programs of different programming language using a single command.
 ## pythonscript
 ## Instructions
 1. Save this script in the same directory in which you have the file you want to run.
