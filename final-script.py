@@ -1,7 +1,13 @@
 #!/usr/bin/env python
-import sys
-import os
-import optparse
+'''
+Author : Shreyak Upadhyay
+Email : shreyakupadhyay07@gmail.com
+Subject : running programs of various languages using one script .
+Description: Using system calls and various python libraries compiling programs of various programming langauges using on single
+script of python. 
+'''
+
+import sys , os ,optparse
 from subprocess import call
 
 array = []
