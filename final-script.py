@@ -9,6 +9,7 @@ script of python.
 
 import sys , os ,optparse
 from subprocess import call
+import subprocess
 
 array = []
 update=0
@@ -37,6 +38,9 @@ def compiler(compiler_name):  #give compiler name as a string like "gcc" for C o
         call(["./"+sys.argv[3]])
         os.remove(sys.argv[3])
 
+def compile_java(java_file):
+    subprocess.check_call(['javac', java_file])
+
 if(arr[1]=='c'):  #for C language
     compiler("gcc")
 
@@ -60,3 +64,7 @@ elif(arr[1]=='j' and arr[2]=='s'): #for javascript language
 elif(arr[1]=='r' and arr[2]=='b'):  #for ruby language
     call(["ruby",sys.argv[1]])  
     
+elif(arr[1]=='j' and arr[2]=='a' and arr[3]=='v' and arr[4]=='a'):  #for java language
+    compile_java(sys.argv[1])
+    sys.argv[1] = (sys.argv[1])[:-5]
+    call(["java",sys.argv[1]])
